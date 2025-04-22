@@ -1,0 +1,42 @@
+// @ts-check
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
+
+// https://astro.build/config
+export default defineConfig({
+  site: "https://www.unitycatalog.io/",
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+    },
+  },
+  integrations: [
+    starlight({
+      customCss: ["./src/styles/custom.css"],
+      title: "Unity Catalog",
+      social: {
+        github: "https://github.com/unitycatalog-incubator/uc-docs",
+      },
+      editLink: {
+        baseUrl: "https://github.com/unitycatalog-incubator/uc-docs",
+      },
+      lastUpdated: true,
+      logo: {
+        light: "./src/assets/unity-catalog-logo-light.svg",
+        dark: "./src/assets/unity-catalog-logo-dark.svg",
+        replacesTitle: true,
+      },
+      sidebar: [
+        {
+          label: "Getting Started",
+          items: [
+            {
+              label: "Introduction",
+              link: "/",
+            },
+          ],
+        },
+      ],
+    }),
+  ],
+});

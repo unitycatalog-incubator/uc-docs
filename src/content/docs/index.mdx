@@ -1,0 +1,35 @@
+---
+title: Unity Catalog - Open, Multimodal Catalog for Data & AI
+description: Unity Catalog is the industry's only universal catalog for data and AI, supporting multiple formats, engines, and assets with open source APIs and unified governance.
+---
+
+import { Image } from 'astro:assets';
+import ucLogo from '../../assets/images/uc-logo.png';
+import ucOverview from '../../assets/images/uc.png';
+import lfaidataLogo from '../../assets/images/lfaidata-project-badge-sandbox-color.png';
+
+<Image src={ucLogo} alt="UC Logo" width={400} height={50} />
+
+Unity Catalog is the industry's only universal catalog for data and AI.
+
+- **Multimodal interface supports any format, engine, and asset**
+    - Multi-format support: It is extensible and supports Delta Lake, Apache Iceberg and Apache Hudi via UniForm,
+        Apache Parquet, JSON, CSV, and many others.
+    - Multi-engine support: Unity Catalog's open APIs allow many leading compute engines to read data cataloged in Unity.
+    - Multimodal: It supports all your data and AI assets, including tables, files, functions, AI models.
+- **Open source API and implementation** - OpenAPI spec and OSS implementation (Apache 2.0 license). It is also
+    compatible with Apache Hive's metastore API and Apache Iceberg's REST catalog API. Unity Catalog is currently a
+    sandbox project with LF AI and Data Foundation (part of the Linux Foundation).
+- **Unified governance** for data and AI - Govern and secure tabular data, unstructured assets, and AI assets with a
+    single interface.
+
+The first release of Unity Catalog focuses on a core set of APIs for tables, unstructured data, and AI assets. More
+will come soon on governance, access, and client interoperability. This is just the beginning!
+
+<Image src={ucOverview} alt="Unity Catalog Overview" width={800} height={400} />
+
+## Project Governance
+
+Unity Catalog is proud to be hosted by the [LF AI & Data Foundation](https://lfaidata.foundation/projects).
+
+<Image src={lfaidataLogo} alt="LF AI & Data Foundation Logo" width={200} height={200} />

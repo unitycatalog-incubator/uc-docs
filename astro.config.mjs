@@ -28,13 +28,25 @@ export default defineConfig({
       },
       sidebar: [
         {
+          label: "Home",
+          link: "/",
+        },
+        {
           label: "Getting Started",
           items: [
             {
-              label: "Introduction",
-              link: "/",
+              label: "Quickstart",
+              link: "/getting-started/quickstart/",
+            },
+            {
+              label: "Docker Compose",
+              link: "/getting-started/docker_compose/",
             },
           ],
+        },
+        {
+          label: "Deployment",
+          link: "/deployment/deployment/",
         },
       ],
     }),

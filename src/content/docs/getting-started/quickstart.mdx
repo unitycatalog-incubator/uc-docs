@@ -4,6 +4,7 @@ description: Get started with Unity Catalog quickly - learn how to run the serve
 ---
 
 import { Image } from 'astro:assets';
+import { Tabs, TabItem, Aside, FileTree, Code } from "@astrojs/starlight/components";
 import ucThreeLevelStructure from '../../../assets/images/uc-3-level.png';
 import ucExampleCatalog from '../../../assets/images/uc_example_catalog.png';
 import ucUI from'../../../assets/images/uc-ui.png';
@@ -17,23 +18,20 @@ This quickstart shows how to run Unity Catalog on localhost which is great for e
 
 Start by cloning the open source Unity Catalog GitHub repository:
 
-```sh
-git clone git@github.com:unitycatalog/unitycatalog.git
-```
+<Code code="git clone git@github.com:unitycatalog/unitycatalog.git" lang="sh" />
 
-> **Note**
-> To start Unity Catalog in Docker, refer to the [Docker Compose docs](docker_compose.md).
+<Aside type="note">
+To start Unity Catalog in Docker, refer to the [Docker Compose docs](/getting-started/docker_compose/).
+</Aside>
 
 To run Unity Catalog, you need **Java 17** installed on your machine. You can
 always run the `java --version` command to verify that you have the right
 version of Java installed such as the following example output.
 
-```sh
-% java --version
+<Code code={`% java --version
 openjdk 17.0.12 2024-07-16
 OpenJDK Runtime Environment Homebrew (build 17.0.12+0)
-OpenJDK 64-Bit Server VM Homebrew (build 17.0.12+0, mixed mode, sharing)
-```
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.12+0, mixed mode, sharing)`} lang="sh" />
 
 Change into the `unitycatalog` directory and run `bin/start-uc-server` to instantiate the server. Here is what you
 should see:
@@ -60,9 +58,7 @@ Let's create a new Terminal window and verify that the Unity Catalog server is r
 Unity Catalog has a few built-in tables that are great for quick experimentation. Let's look at all the tables that
 have a catalog name of "unity" and a schema name of "default" with the Unity Catalog CLI.
 
-```sh
-bin/uc table list --catalog unity --schema default
-```
+<Code code="bin/uc table list --catalog unity --schema default" lang="sh" />
 
 ```console
 ┌─────────────────┬──────────────┬─────┬────────────────────────────────────┐
@@ -80,9 +76,7 @@ bin/uc table list --catalog unity --schema default
 
 Let's read the content of the `unity.default.numbers` table with the Unity Catalog CLI.
 
-```sh
-bin/uc table read --full_name unity.default.numbers
-```
+<Code code="bin/uc table read --full_name unity.default.numbers" lang="sh" />
 
 ```console
 ┌───────────────────┬────────────────────┐
@@ -128,15 +122,11 @@ The Unity Catalog server is pre-populated with a few sample catalogs, schemas, D
 
 Let's start by listing the catalogs using the CLI.
 
-```sh
-bin/uc catalog list
-```
+<Code code="bin/uc catalog list" lang="sh" />
 
 You should see a catalog named `unity`. Let's see what's in this `unity` catalog (pun intended).
 
-```sh
-bin/uc schema list --catalog unity
-```
+<Code code="bin/uc schema list --catalog unity" lang="sh" />
 
 ```console
 ┌───────┬────────────┬───┬────────────────────────────────────┐
@@ -152,10 +142,7 @@ you have to list different asset types separately. Let's start with tables.
 ## Operate on Delta tables with the CLI
 
 Let's list the tables.
-
-```sh
-bin/uc table list --catalog unity --schema default
-```
+<Code code="bin/uc table list --catalog unity --schema default" lang="sh" />
 
 ```console
 ┌─────────────────┬────────────┬────┬────────────────────────────────────┐
@@ -173,14 +160,13 @@ bin/uc table list --catalog unity --schema default
 
 You should see a few tables. Some details are truncated because of the nested nature of the data.
 
-> **Note**
-> To see all the content, you can add `--output jsonPretty` to any command.
+<Aside type="note">
+To see all the content, you can add `--output jsonPretty` to any command.
+</Aside>
 
 Next, let's get the metadata of one those tables.
 
-```sh
-bin/uc table get --full_name unity.default.numbers
-```
+<Code code="bin/uc table get --full_name unity.default.numbers" lang="sh" />
 
 ```console
 ┌──────────────────────┬───────────────────────────────────────────┐
@@ -214,9 +200,7 @@ Here's how to print a snippet of a Delta table (powered by the [Delta Kernel Jav
 
 Let's try creating a new table.
 
-```sh
-bin/uc table create --full_name unity.default.mytable --columns 'col1 int, col2 double' --storage_location /tmp/uc/my_table
-```
+<Code code="bin/uc table create --full_name unity.default.mytable --columns 'col1 int, col2 double' --storage_location /tmp/uc/my_table" lang="sh" />
 
 ```console
 ┌──────────────────────┬───────────────────────────────────────────┐
@@ -246,21 +230,17 @@ bin/uc table create --full_name unity.default.mytable --columns 'col1 int, col2 
 
 If you list the tables (e.g., `bin/uc table list --catalog unity --schema default`) again, you should see this new table.
 
-> **Note**
-> Note, at this point, `unity.default.mytable` is an empty table; e.g. if you run
-> `bin/uc table read --full_name unity.default.mytable` there will be no rows.
+<Aside type="note">
+At this point, `unity.default.mytable` is an empty table; e.g. if you run
+`bin/uc table read --full_name unity.default.mytable` there will be no rows.
+</Aside>
 
 Next, append some randomly generated data to the table using `write`.
 
-```sh
-bin/uc table write --full_name unity.default.mytable
-```
+<Code code="bin/uc table write --full_name unity.default.mytable" lang="sh" />
 
 Read the table to confirm the random data was appended:
-
-```sh
-bin/uc table read --full_name unity.default.mytable
-```
+<Code code="bin/uc table read --full_name unity.default.mytable" lang="sh" />
 
 ```console
 ┌───────────────────┬────────────────────┐
@@ -278,13 +258,12 @@ bin/uc table read --full_name unity.default.mytable
 
 Delete the table to clean up:
 
-```sh
-bin/uc table delete --full_name unity.default.mytable
-```
+<Code code="bin/uc table delete --full_name unity.default.mytable" lang="sh" />
 
-> **Note**
-> Note, while you have deleted the table from Unity Catalog, the underlying file system may still have the files (i.e.,
-> check the /tmp/uc/my_table/folder).
+<Aside type="note">
+While you have deleted the table from Unity Catalog, the underlying file system may still have the files (i.e.,
+check the /tmp/uc/my_table/folder).
+</Aside>
 
 ## Interact with the Unity Catalog UI
 
@@ -292,16 +271,15 @@ bin/uc table delete --full_name unity.default.mytable
 
 To use the Unity Catalog UI, start a new terminal and ensure you have already started the Unity Catalog server (e.g., `./bin/start-uc-server`)
 
-> **Warning**
-> The Unity Catalog UI requires both [Node](https://nodejs.org/en/download/package-manager) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install).
+<Aside type="caution">
+The Unity Catalog UI requires both [Node](https://nodejs.org/en/download/package-manager) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install).
+</Aside>
 
 To start the UI locally, run the following commands to start `yarn`
 
-```sh
-cd /ui
+<Code code={`cd /ui
 yarn install
-yarn start
-```
+yarn start`} lang="sh" />
 
 ## Manage models in Unity Catalog using MLflow
 
@@ -314,32 +292,24 @@ interact directly with your Unity Catalog service for the creation and access of
 
 In your desired development environment, install MLflow 2.16.1 or higher:
 
-```sh
-pip install mlflow
-```
+<Code code="pip install mlflow" lang="sh" />
 
 The installation of MLflow includes the MLflow CLI tool, so you can start a local MLflow server with UI by running the
 command below in your terminal:
 
-```sh
-mlflow ui
-```
+<Code code="mlflow ui" lang="sh" />
 
 It will generate logs with the IP address, for example:
 
-```console
-[2023-10-25 19:39:12 -0700] [50239] [INFO] Starting gunicorn 20.1.0
-[2023-10-25 19:39:12 -0700] [50239] [INFO] Listening at: http://127.0.0.1:5000 (50239)
-```
+<Code code={`[2023-10-25 19:39:12 -0700] [50239] [INFO] Starting gunicorn 20.1.0
+[2023-10-25 19:39:12 -0700] [50239] [INFO] Listening at: http://127.0.0.1:5000 (50239)`} lang="console" />
 
 Next, from within a python script or shell, import MLflow and set the tracking URI and the registry URI.
 
-```python
-import mlflow
+<Code code={`import mlflow
 
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
-mlflow.set_registry_uri("uc:http://127.0.0.1:8080")
-```
+mlflow.set_registry_uri("uc:http://127.0.0.1:8080")`} lang="python" />
 
 At this point, your MLflow environment is ready for use with the newly started MLflow tracking server and the
 Unity Catalog server acting as your model registry.
@@ -348,8 +318,7 @@ Unity Catalog server acting as your model registry.
 
 You can quickly train a test model and validate that the MLflow/Unity catalog integration is fully working.
 
-```python
-import os
+<Code code={`import os
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
@@ -379,8 +348,7 @@ iris_feature_names = datasets.load_iris().feature_names
 result = pd.DataFrame(X_test, columns=iris_feature_names)
 result["actual_class"] = y_test
 result["predicted_class"] = predictions
-result[:4]
-```
+result[:4]`} lang="python" />
 
 This code snippet will create a registered model `default.unity.iris` and log the trained model as model version 1. It
 then loads the model from the Unity Catalog server, and performs batch inference on the test set using the loaded model.

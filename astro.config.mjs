@@ -51,6 +51,39 @@ export default defineConfig({
               label: "CLI",
               link: "/usage/cli/",
             },
+            {
+              label: "UI",
+              link: "/usage/ui/",
+            },
+            {
+              label: "Tables",
+              items: [
+                {
+                  label: "Delta Lake",
+                  link: "/usage/tables/deltalake/",
+                },
+                {
+                  label: "Formats",
+                  link: "/usage/tables/formats/",
+                },
+                {
+                  label: "Uniform",
+                  link: "/usage/tables/uniform/",
+                },
+              ],
+            },
+            {
+              label: "Volumes",
+              link: "/usage/volumes/",
+            },
+            {
+              label: "Functions",
+              link: "/usage/functions/",
+            },
+            {
+              label: "Models",
+              link: "/usage/models/",
+            },
           ],
         },
         {

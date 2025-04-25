@@ -87,6 +87,27 @@ export default defineConfig({
           ],
         },
         {
+          label: "Server",
+          items: [
+            {
+              label: "Configuration",
+              link: "/server/configuration/",
+            },
+            {
+              label: "Auth",
+              link: "/server/auth/",
+            },
+            {
+              label: "Users and Privileges",
+              link: "/server/users-privileges/",
+            },
+            {
+              label: "Google Auth",
+              link: "/server/google-auth/",
+            },
+          ],
+        },
+        {
           label: "Deployment",
           link: "/deployment/deployment/",
         },

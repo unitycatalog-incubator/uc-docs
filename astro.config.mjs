@@ -45,6 +45,15 @@ export default defineConfig({
           ],
         },
         {
+          label: "Usage",
+          items: [
+            {
+              label: "CLI",
+              link: "/usage/cli/",
+            },
+          ],
+        },
+        {
           label: "Deployment",
           link: "/deployment/deployment/",
         },

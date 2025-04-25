@@ -230,7 +230,7 @@ Let's try creating a new table.
 
 If you list the tables (e.g., `bin/uc table list --catalog unity --schema default`) again, you should see this new table.
 
-<Aside type="note">
+<Aside type="note" title="mytable is an empty table">
 At this point, `unity.default.mytable` is an empty table; e.g. if you run
 `bin/uc table read --full_name unity.default.mytable` there will be no rows.
 </Aside>
@@ -271,7 +271,7 @@ check the /tmp/uc/my_table/folder).
 
 To use the Unity Catalog UI, start a new terminal and ensure you have already started the Unity Catalog server (e.g., `./bin/start-uc-server`)
 
-<Aside type="caution">
+<Aside type="caution" title="Prerequisites">
 The Unity Catalog UI requires both [Node](https://nodejs.org/en/download/package-manager) and [Yarn](https://classic.yarnpkg.com/lang/en/docs/install).
 </Aside>
 

@@ -108,6 +108,47 @@ export default defineConfig({
           ],
         },
         {
+          label: "Integration",
+          items: [
+            {
+              label: "Apache Spark",
+              link: "/integration/unity-catalog-spark/",
+            },
+            {
+              label: "CelerData",
+              link: "/integration/unity-catalog-celerdata/",
+            },
+            {
+              label: "Daft",
+              link: "/integration/unity-catalog-daft/",
+            },
+            {
+              label: "DuckDB",
+              link: "/integration/unity-catalog-duckdb/",
+            },
+            {
+              label: "Kuzu",
+              link: "/integration/unity-catalog-kuzu/",
+            },
+            {
+              label: "PuppyGraph",
+              link: "/integration/unity-catalog-puppygraph/",
+            },
+            {
+              label: "SpiceAI",
+              link: "/integration/unity-catalog-spiceai/",
+            },
+            {
+              label: "Trino",
+              link: "/integration/unity-catalog-trino/",
+            },
+            {
+              label: "XTable",
+              link: "/integration/unity-catalog-xtable/",
+            },
+          ],
+        },
+        {
           label: "Deployment",
           link: "/deployment/deployment/",
         },

@@ -35,7 +35,7 @@ bin/start-uc-server
 
 Now we connect CelerData Cloud BYOC to Unity Catalog through the CelerData Unity external catalog feature.
 
-```SQL
+```sql
 create external catalog uc properties (
 "type"="deltalake",
 "hive.metastore.type" = "unity",
@@ -47,7 +47,7 @@ create external catalog uc properties (
 
 Check whether the connection is successful and query the data.
 
-```SQL
+```sql
 -- show databases from the catalog
 show databases from uc;
 

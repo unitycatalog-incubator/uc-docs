@@ -152,6 +152,64 @@ export default defineConfig({
           label: "Deployment",
           link: "/deployment/deployment/",
         },
+        {
+          label: "AI",
+          items: [
+            {
+              label: "Quickstart",
+              link: "/ai/quickstart/",
+            },
+            {
+              label: "Usage",
+              link: "/ai/usage/",
+            },
+            {
+              label: "AI Client",
+              link: "/ai/client/",
+            },
+            {
+              label: "Integrations",
+              items: [
+                {
+                  label: "Overview",
+                  link: "/ai/integrations/",
+                },
+                {
+                  label: "LangChain",
+                  link: "/ai/integrations/langchain/",
+                },
+                {
+                  label: "LlamaIndex",
+                  link: "/ai/integrations/llamaindex/",
+                },
+                {
+                  label: "OpenAI",
+                  link: "/ai/integrations/openai/",
+                },
+                {
+                  label: "Anthropic",
+                  link: "/ai/integrations/anthropic/",
+                },
+                {
+                  label: "CrewAI",
+                  link: "/ai/integrations/crewai/",
+                },
+                {
+                  label: "AutoGen",
+                  link: "/ai/integrations/autogen/",
+                },
+                {
+                  label: "LiteLLM",
+                  link: "/ai/integrations/litellm/",
+                },
+                {
+                  label: "Gemini",
+                  link: "/ai/integrations/gemini/",
+                },
+              ],
+            },
+          ],
+        },
       ],
     }),
   ],

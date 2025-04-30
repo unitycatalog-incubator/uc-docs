@@ -44,7 +44,7 @@ instructions. Ultimately you will have configuration properties to configure:
 Currently, the Unity Catalog User Interface supports Google Identity Provider.
 </Aside>
 
-You can follow [these instructions](./google-auth.md) if would like to use Google as your external identity provider.
+You can follow [these instructions](/server/google-auth) if would like to use Google as your external identity provider.
 
 Once you have configured your identity provider, the next step is to configure your Unity Catalog server settings.
 
@@ -267,7 +267,7 @@ SELECT * from unity.default.numbers;
 
 Now that you have enabled Google Authentication for your UC instance, any unauthenticated clients such as a spark-sql
 shell without using an identity token will fail.  For example, if you were to run the `SHOW SCHEMA` step in the
-[working with Unity Catalog Tables with Spark](../integrations/unity-catalog-spark.md) using the unauthenticated
+[working with Unity Catalog Tables with Spark](/integration/unity-catalog-spark) using the unauthenticated
 spark-sql command, you would get the following error.
 
 ```console
@@ -294,8 +294,8 @@ bin/spark-sql --name "local-uc-test" \
     --conf "spark.sql.defaultCatalog=unity"
 ```
 
-With this set, now you can continue your [Using Spark SQL to query Unity Catalog schemas and tables](../integrations/unity-catalog-spark.md#using-spark-sql-to-query-unity-catalog-schemas-and-tables)
-and [Running CRUD Operations on a Unity Catalog table](../integrations/unity-catalog-spark.md#running-crud-operations-on-a-unity-catalog-table)
+With this set, now you can continue your [Using Spark SQL to query Unity Catalog schemas and tables](/integration/unity-catalog-spark#using-spark-sql-to-query-unity-catalog-schemas-and-tables)
+and [Running CRUD Operations on a Unity Catalog table](/integration/unity-catalog-spark#running-crud-operations-on-a-unity-catalog-table)
 steps with Spark as an authenticated client to UC.
 
 ## Using Google Identity with Unity Catalog UI
@@ -306,7 +306,7 @@ can also apply this authentication and authorization to the Unity Catalog UI.
 ### Configure and restart the Unity Catalog UI
 
 First, you will need to edit the `ui/.env` file to enable Google Auth and add the Google Client ID that you created
-when you - in this example - previously [configured Google as the Identity Provider](./google-auth.md).
+when you - in this example - previously [configured Google as the Identity Provider](/server/google-auth).
 
 ```sh
 REACT_APP_GOOGLE_AUTH_ENABLED=true

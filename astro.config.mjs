@@ -172,7 +172,7 @@ export default defineConfig({
               items: [
                 {
                   label: "Overview",
-                  link: "/ai/integrations/",
+                  link: "/ai/integrations/overview/",
                 },
                 {
                   label: "LangChain",

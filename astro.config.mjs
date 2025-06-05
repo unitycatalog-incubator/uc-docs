@@ -14,9 +14,13 @@ export default defineConfig({
     starlight({
       customCss: ["./src/styles/custom.css"],
       title: "Unity Catalog",
-      social: {
-        github: "https://github.com/unitycatalog-incubator/uc-docs",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/unitycatalog-incubator/uc-docs",
+        },
+      ],
       editLink: {
         baseUrl: "https://github.com/unitycatalog-incubator/uc-docs",
       },

@@ -144,6 +144,39 @@ export default defineConfig({
               link: "/usage/ui/",
             },
             {
+              label: "API",
+              items: [
+                {
+                  label: "Overview",
+                  link: "/usage/api/overview/",
+                },
+                {
+                  label: "Catalogs",
+                  link: "/usage/api/catalogs/",
+                },
+                {
+                  label: "Functions",
+                  link: "/usage/api/functions/",
+                },
+                {
+                  label: "Models",
+                  link: "/usage/api/models/",
+                },
+                {
+                  label: "Volumes",
+                  link: "/usage/api/volumes/",
+                },
+                {
+                  label: "Schemas",
+                  link: "/usage/api/schemas/",
+                },
+                {
+                  label: "Tables",
+                  link: "/usage/api/tables/",
+                },
+              ],
+            },
+            {
               label: "Tables",
               items: [
                 {

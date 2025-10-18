@@ -95,11 +95,11 @@
 
 .github-fact--version::before {
   content: "🏷️ ";
-  color: var(--sl-color-accent);
+  color: var(--sl-color-text-accent);
 }
 
 .github-fact--version {
-  color: var(--sl-color-accent);
+  color: var(--sl-color-text-accent);
   font-weight: 500;
 }
 

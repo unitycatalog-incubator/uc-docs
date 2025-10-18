@@ -3,6 +3,8 @@ title: How to work with Catalogs using the REST API
 description: Learn how to work with catalogs using the Unity Catalog REST API.
 ---
 
+import { Aside, Code } from "@astrojs/starlight/components";
+
 Use the `/catalogs` endpoint to work with catalogs.
 
 | Method | Description | Endpoint |
@@ -15,27 +17,25 @@ Use the `/catalogs` endpoint to work with catalogs.
 
 The following sections show how to use each of these methods. Examples are demonstrated using Python and the `requests` library.
 
-<!-- prettier-ignore -->
-!!! note "Unity Catalog server"
-    The examples assume a local Unity Catalog server running at the default location `http://localhost:8080`. Update the `BASE_URL` if your server is running somewhere else.
+<Aside type="note" title="Unity Catalog server">
+The examples assume a local Unity Catalog server running at the default location `http://localhost:8080`. Update the `BASE_URL` if your server is running somewhere else.
+</Aside>
 
 ## How to list catalogs
 
 Use the `GET` command at the `/catalogs` endpoint to retrieve a list of all available catalogs on the server.
 
-```python
-> BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
-> ENDPOINT = "/catalogs"
-> URL = f"{BASE_URL}{ENDPOINT}"
+<Code code={`BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
+ENDPOINT = "/catalogs"
+URL = f"{BASE_URL}{ENDPOINT}"
 
-> response = requests.get(URL, headers=headers)
-> data = response.json()
-> catalogs = data.get("catalogs", [])
-> for catalog in catalogs:
->    print(f"• {catalog['name']}")
+response = requests.get(URL, headers=headers)
+data = response.json()
+catalogs = data.get("catalogs", [])
+for catalog in catalogs:
+   print(f"• {catalog['name']}")
 
-• unity
-```
+• unity`} lang="python" />
 
 Here we use a second GET command and a `for` loop to fetch only the catalog names from the return data JSON response. Note that there is no guarantee of a specific ordering of the elements in the list.
 
@@ -43,20 +43,17 @@ Here we use a second GET command and a `for` loop to fetch only the catalog name
 
 To retrieve metadata about a specific catalog, use the `GET` command at the `/catalogs/<catalog-name>` endpoint. For example:
 
-```python
-> BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
-> ENDPOINT = "/catalogs/unity"
-> URL = f"{BASE_URL}{ENDPOINT}"
+<Code code={`BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
+ENDPOINT = "/catalogs/unity"
+URL = f"{BASE_URL}{ENDPOINT}"
 
-> response = requests.get(URL, headers=headers)
-> data = response.json()
-> data
-```
+response = requests.get(URL, headers=headers)
+data = response.json()
+data`} lang="python" />
 
 This will return all available metadata for the specified catalog:
 
-```
-{'name': 'unity',
+<Code code={`{'name': 'unity',
  'comment': 'Main catalog',
  'properties': {},
  'owner': None,
@@ -64,31 +61,27 @@ This will return all available metadata for the specified catalog:
  'created_by': None,
  'updated_at': None,
  'updated_by': None,
- 'id': 'f029b870-9468-4f10-badc-630b41e5690d'}
-```
+ 'id': 'f029b870-9468-4f10-badc-630b41e5690d'}`} lang="python" />
 
 ## How to create a catalog
 
 Use the `POST` command at the `/catalogs` endpoint to create a new catalog:
 
-```python
-> BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
-> ENDPOINT = "/catalogs"
-> URL = f"{BASE_URL}{ENDPOINT}"
+<Code code={`BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
+ENDPOINT = "/catalogs"
+URL = f"{BASE_URL}{ENDPOINT}"
 
-> data = {
->     "name": "my_new_catalog",
->     "comment": "Created via REST API"
-> }
+data = {
+    "name": "my_new_catalog",
+    "comment": "Created via REST API"
+}
 
-> response = requests.post(URL, headers=headers, json=data)
-> response.json()
-```
+response = requests.post(URL, headers=headers, json=data)
+response.json()`} lang="python" />
 
 This will return:
 
-```
-{'name': 'my_new_catalog',
+<Code code={`{'name': 'my_new_catalog',
  'comment': 'Created via REST API',
  'properties': {},
  'owner': None,
@@ -96,30 +89,26 @@ This will return:
  'created_by': None,
  'updated_at': 1745157750562,
  'updated_by': None,
- 'id': '08601e1a-d940-419c-8bfe-7667ea9bcab8'}
-```
+ 'id': '08601e1a-d940-419c-8bfe-7667ea9bcab8'}`} lang="python" />
 
 ## How to update a catalog
 
 Use the `PATCH` command at the `/catalogs/<catalog-name>` endpoint to partially update an existing catalog. Include the fields to update in a dictionary and send this with the PATCH request. For example, to update the comment field of the catalog we just created above:
 
-```python
-> BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
-> ENDPOINT = "/catalogs/my_new_catalog"
-> URL = f"{BASE_URL}{ENDPOINT}"
+<Code code={`BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
+ENDPOINT = "/catalogs/my_new_catalog"
+URL = f"{BASE_URL}{ENDPOINT}"
 
-> data = {
->     "comment": "This is the updated catalog description"
-> }
+data = {
+    "comment": "This is the updated catalog description"
+}
 
-> response = requests.patch(URL, json=data, headers=headers)
-> response.json()
-```
+response = requests.patch(URL, json=data, headers=headers)
+response.json()`} lang="python" />
 
 This will return:
 
-```
-{'name': 'my_new_catalog',
+<Code code={`{'name': 'my_new_catalog',
  'comment': 'This is the updated catalog description',
  'properties': {},
  'owner': None,
@@ -127,8 +116,7 @@ This will return:
  'created_by': None,
  'updated_at': 1745158807128,
  'updated_by': None,
- 'id': 'aeb72f8b-9d4b-4128-be97-639e914e785c'}
-```
+ 'id': 'aeb72f8b-9d4b-4128-be97-639e914e785c'}`} lang="python" />
 
 This has successfully updated only the comment field without having to rewrite the entire catalog.
 
@@ -136,26 +124,22 @@ This has successfully updated only the comment field without having to rewrite t
 
 Use the `DELETE` command at the `/catalogs/<catalog-name>` endpoint to delete a specific catalog.
 
-<!-- prettier-ignore -->
-!!! tip "Force Delete"
-    You can add the `force` parameter to force a delete even if the catalog is not empty.
+<Aside type="tip" title="Force Delete">
+You can add the `force` parameter to force a delete even if the catalog is not empty.
+</Aside>
 
-```python
-> BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
-> ENDPOINT = "/catalogs/my_new_catalog"
-> URL = f"{BASE_URL}{ENDPOINT}"
+<Code code={`BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
+ENDPOINT = "/catalogs/my_new_catalog"
+URL = f"{BASE_URL}{ENDPOINT}"
 
-> params = {"force": "true"}
-> response = requests.delete(URL, headers=headers, params=params)
+params = {"force": "true"}
+response = requests.delete(URL, headers=headers, params=params)
 
-> if response.status_code == 200:
->     print("✅ The catalog was successfully deleted.")
-> else:
->     print("❌ Failed to delete catalog:", response.text)
-```
+if response.status_code == 200:
+    print("✅ The catalog was successfully deleted.")
+else:
+    print("❌ Failed to delete catalog:", response.text)`} lang="python" />
 
 This should return:
 
-```
-✅ The catalog was successfully deleted.
-```
+<Code code="✅ The catalog was successfully deleted." lang="console" />

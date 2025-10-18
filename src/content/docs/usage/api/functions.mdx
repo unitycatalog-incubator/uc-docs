@@ -3,6 +3,8 @@ title: How to work with Functions using the REST API
 description: Learn how to work with functions using the Unity Catalog REST API.
 ---
 
+import { Aside, Code } from "@astrojs/starlight/components";
+
 Use the `/functions` endpoint to work with functions.
 
 | Method | Description | Endpoint |
@@ -14,16 +16,15 @@ Use the `/functions` endpoint to work with functions.
 
 The following sections show how to use each of these methods. Examples are demonstrated using Python and the `requests` library.
 
-<!-- prettier-ignore -->
-!!! note "Unity Catalog server"
-    The examples assume a local Unity Catalog server running at the default location `http://localhost:8080`. Update the `BASE_URL` if your server is running somewhere else.
+<Aside type="note" title="Unity Catalog server">
+The examples assume a local Unity Catalog server running at the default location `http://localhost:8080`. Update the `BASE_URL` if your server is running somewhere else.
+</Aside>
 
 ## How to list functions
 
 Use the `GET` command and the `/functions` endpoint to get a list of all registered functions. You will need to supply the catalog and schema names.
 
-```python
-BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
+<Code code={`BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
 ENDPOINT = "/functions"
 URL = f"{BASE_URL}{ENDPOINT}"
 
@@ -33,8 +34,7 @@ params = {
 }
 
 response = requests.get(URL, params=params)
-response.json()
-```
+response.json()`} lang="python" />
 
 ## How to get function metadata
 
@@ -42,19 +42,16 @@ To retrieve metadata about a specific function, use the GET command at the `/fun
 
 For example:
 
-```python
-BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
+<Code code={`BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
 ENDPOINT = "/functions/unity.default.lowercase"
 URL = f"{BASE_URL}{ENDPOINT}"
 
 response = requests.get(URL, headers=headers)
-response.json()
-```
+response.json()`} lang="python" />
 
 This will return all available metadata for the specified function:
 
-```
-{'name': 'lowercase',
+<Code code={`{'name': 'lowercase',
  'catalog_name': 'unity',
  'schema_name': 'default',
  'input_params': {'parameters': [{'name': 's',
@@ -90,17 +87,14 @@ This will return all available metadata for the specified function:
  'updated_at': None,
  'updated_by': None,
  'function_id': 'ebb706d6-7ba0-4b2e-8d9c-716d13fd57f8',
- 'external_language': 'python'}
-```
+ 'external_language': 'python'}`} lang="python" />
 
 ## How to delete a function
 
 Use the DELETE command at the `/functions/<full-function-name>` endpoint to delete a specific function. The full name is the 3-level namespace reference to your function: `catalog.schema.function`. For example:
 
-```python
-BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
+<Code code={`BASE_URL = "http://localhost:8080/api/2.1/unity-catalog"
 ENDPOINT = "/functions/unity.default.lowercase"
 URL = f"{BASE_URL}{ENDPOINT}"
 
-response = requests.delete(URL)
-```
+response = requests.delete(URL)`} lang="python" />

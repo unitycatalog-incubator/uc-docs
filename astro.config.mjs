@@ -124,11 +124,11 @@ export default defineConfig({
           items: [
             {
               label: "Quickstart",
-              link: "/getting-started/quickstart/",
+              link: "/quickstart/",
             },
             {
               label: "Docker Compose",
-              link: "/getting-started/docker_compose/",
+              link: "/docker_compose/",
             },
           ],
         },
@@ -142,39 +142,6 @@ export default defineConfig({
             {
               label: "UI",
               link: "/usage/ui/",
-            },
-            {
-              label: "API",
-              items: [
-                {
-                  label: "Overview",
-                  link: "/usage/api/overview/",
-                },
-                {
-                  label: "Catalogs",
-                  link: "/usage/api/catalogs/",
-                },
-                {
-                  label: "Functions",
-                  link: "/usage/api/functions/",
-                },
-                {
-                  label: "Models",
-                  link: "/usage/api/models/",
-                },
-                {
-                  label: "Volumes",
-                  link: "/usage/api/volumes/",
-                },
-                {
-                  label: "Schemas",
-                  link: "/usage/api/schemas/",
-                },
-                {
-                  label: "Tables",
-                  link: "/usage/api/tables/",
-                },
-              ],
             },
             {
               label: "Tables",
@@ -229,49 +196,45 @@ export default defineConfig({
           ],
         },
         {
-          label: "Integration",
+          label: "Integrations",
           items: [
             {
               label: "Apache Spark",
-              link: "/integration/unity-catalog-spark/",
+              link: "/integrations/unity-catalog-spark/",
             },
             {
               label: "CelerData",
-              link: "/integration/unity-catalog-celerdata/",
+              link: "/integrations/unity-catalog-celerdata/",
             },
             {
               label: "Daft",
-              link: "/integration/unity-catalog-daft/",
+              link: "/integrations/unity-catalog-daft/",
             },
             {
               label: "DuckDB",
-              link: "/integration/unity-catalog-duckdb/",
+              link: "/integrations/unity-catalog-duckdb/",
             },
             {
               label: "Kuzu",
-              link: "/integration/unity-catalog-kuzu/",
+              link: "/integrations/unity-catalog-kuzu/",
             },
             {
               label: "PuppyGraph",
-              link: "/integration/unity-catalog-puppygraph/",
+              link: "/integrations/unity-catalog-puppygraph/",
             },
             {
               label: "SpiceAI",
-              link: "/integration/unity-catalog-spiceai/",
+              link: "/integrations/unity-catalog-spiceai/",
             },
             {
               label: "Trino",
-              link: "/integration/unity-catalog-trino/",
+              link: "/integrations/unity-catalog-trino/",
             },
             {
               label: "XTable",
-              link: "/integration/unity-catalog-xtable/",
+              link: "/integrations/unity-catalog-xtable/",
             },
           ],
-        },
-        {
-          label: "Deployment",
-          link: "/deployment/deployment/",
         },
         {
           label: "AI",
@@ -291,10 +254,6 @@ export default defineConfig({
             {
               label: "Integrations",
               items: [
-                {
-                  label: "Overview",
-                  link: "/ai/integrations/overview/",
-                },
                 {
                   label: "LangChain",
                   link: "/ai/integrations/langchain/",

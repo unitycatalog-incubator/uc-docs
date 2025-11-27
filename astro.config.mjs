@@ -106,7 +106,7 @@ export default defineConfig({
         },
       ],
       editLink: {
-        baseUrl: "https://github.com/unitycatalog-incubator/uc-docs",
+        baseUrl: "https://github.com/unitycatalog/unitycatalog/docs",
       },
       lastUpdated: true,
       logo: {
@@ -188,10 +188,6 @@ export default defineConfig({
             {
               label: "Users and Privileges",
               link: "/server/users-privileges/",
-            },
-            {
-              label: "Google Auth",
-              link: "/server/google-auth/",
             },
           ],
         },

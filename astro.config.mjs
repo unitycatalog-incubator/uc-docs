@@ -2,7 +2,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import { plausible } from "starlight-plausible";
-import { githubStats } from "./plugins/starlight-github-stats";
+import { githubStats } from "starlight-github-stats";
 
 // https://astro.build/config
 export default defineConfig({
